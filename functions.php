@@ -44,7 +44,7 @@ if ( ! function_exists( 'novella_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'novella' ),
+			'main-menu' => esc_html__( 'Primary', 'novella' )
 		) );
 
 		/*
@@ -121,14 +121,24 @@ add_action( 'widgets_init', 'novella_widgets_init' );
  */
 function novella_scripts() {
 	wp_enqueue_style( 'novella-style', get_stylesheet_uri() );
+        
+        wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Raleway:400,600,800,900&display=swap', false );
 
 	wp_enqueue_script( 'novella-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'novella-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+        wp_enqueue_script( 'jquery' );
+        
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+        
+        //Owl Carousel Files
+        wp_enqueue_style( 'owl-carousel-main-css', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.css', array(), false, false );
+        wp_enqueue_style( 'owl-carousel-theme-css', get_template_directory_uri() . '/inc/owl-carousel/owl.theme.default.css', array(), false, false );
+        wp_enqueue_script( 'owl-carousel-js', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.min.js', array(), false, true );
+        wp_enqueue_script( 'owl-carousel-home-js', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.home.js', array(), false, true );
 }
 add_action( 'wp_enqueue_scripts', 'novella_scripts' );
 

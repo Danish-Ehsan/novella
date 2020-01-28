@@ -21,38 +21,38 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'novella' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'novella' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$novella_description = get_bloginfo( 'description', 'display' );
-			if ( $novella_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $novella_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+    <header id="masthead" class="header">
+        <div class="header__logo-cont">
+            <div class="header__logo">
+                    <?php
+                    the_custom_logo();
+                    ?>
+            </div><!-- .site-branding -->
+        </div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'novella' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+        <nav id="site-navigation" class="header__nav">
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'novella' ); ?></button>
+            <?php
+            wp_nav_menu( array(
+                    'theme_location'    => 'main-menu',
+                    'menu_class'        => 'header__nav-menu',
+                    'container'         =>  false
+            ) );
+            ?>
+        </nav><!-- #site-navigation -->
 
-	<div id="content" class="site-content">
+        <div class="header__social">
+            <ul class="header__social-menu">
+                <li class="header__social-menu-item"><a href="http://facebook.com/NovellaMagazine"><i class="fab fa-facebook-square"></i></a></li>
+                <li class="header__social-menu-item"><a href="http://twitter.com/NovellaMagazine"><i class="fab fa-twitter-square"></i></a></li>
+                <li class="header__social-menu-item"><a href="http://instagram.com/novellamagazine"><i class="fab fa-instagram"></i></i></a></li>
+                <li class="header__social-menu-item"><a href="http://novellamag.tumblr.com"><i class="fab fa-tumblr-square"></i></i></a></li>
+                <li class="header__social-menu-item"><a href="https://vimeo.com/novellamag"><i class="fab fa-vimeo-square"></i></i></a></li>
+                <li class="header__social-menu-item"><a href="mailto:info@novellamag.com"><i class="fas fa-envelope-square"></i></i></a></li>
+            </ul>
+        </div>
+    </header><!-- #masthead -->
+
+    <div id="content" class="container">
