@@ -49,7 +49,7 @@
 
         <div class="footer__twitter">
             <h3>Follow me on Twitter</h3>
-            <a href="http://twitter.com/NovellaMagazine">Tweets by @NovellaMagazine</a>
+            <a href="http://twitter.com/NovellaMagazine" target="_blank">Tweets by @NovellaMagazine</a>
         </div>
 
         <div class="footer__insta"></div>

@@ -46,12 +46,12 @@
 
         <div class="header__social">
             <ul class="header__social-menu">
-                <li class="header__social-menu-item"><a href="http://facebook.com/NovellaMagazine"><i class="fab fa-facebook-square"></i></a></li>
-                <li class="header__social-menu-item"><a href="http://twitter.com/NovellaMagazine"><i class="fab fa-twitter-square"></i></a></li>
-                <li class="header__social-menu-item"><a href="http://instagram.com/novellamagazine"><i class="fab fa-instagram"></i></i></a></li>
-                <li class="header__social-menu-item"><a href="http://novellamag.tumblr.com"><i class="fab fa-tumblr-square"></i></i></a></li>
-                <li class="header__social-menu-item"><a href="https://vimeo.com/novellamag"><i class="fab fa-vimeo-square"></i></i></a></li>
-                <li class="header__social-menu-item"><a href="mailto:info@novellamag.com"><i class="fas fa-envelope-square"></i></i></a></li>
+                <li class="header__social-menu-item"><a href="http://facebook.com/NovellaMagazine" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
+                <li class="header__social-menu-item"><a href="http://twitter.com/NovellaMagazine" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
+                <li class="header__social-menu-item"><a href="http://instagram.com/novellamagazine" target="_blank"><i class="fab fa-instagram"></i></i></a></li>
+                <li class="header__social-menu-item"><a href="http://novellamag.tumblr.com" target="_blank"><i class="fab fa-tumblr-square"></i></i></a></li>
+                <li class="header__social-menu-item"><a href="https://vimeo.com/novellamag" target="_blank"><i class="fab fa-vimeo-square"></i></i></a></li>
+                <li class="header__social-menu-item"><a href="mailto:info@novellamag.com" target="_blank"><i class="fas fa-envelope-square"></i></i></a></li>
             </ul>
         </div>
     </header><!-- #masthead -->
