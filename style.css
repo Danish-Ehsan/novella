@@ -45,6 +45,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
         ## Header
         ## Footer
         ## Front Page
+        ## Things We Love
+
+# Custom Styles
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
@@ -993,6 +996,11 @@ object {
 
 
 
+
+
+
+
+
 /*--------------------------------------------------------------
 --------------------------------------------------------------
 # Custom Styles
@@ -1019,10 +1027,20 @@ ul {
     padding: 0;
 }
 
+h2 {
+    font-size: 16px;
+    letter-spacing: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
 h3 {
     text-transform: uppercase;
     font-size: 14px;
 }
+
+
+
 
 
 
@@ -1101,6 +1119,7 @@ h3 {
     height: 100%;
     display: inline-block;
     margin-right: 50px;
+    font-size: 14px;
 }
 
 .header__social-menu {
@@ -1129,6 +1148,12 @@ h3 {
 .header__social-menu-item a:hover {
     color: #CF5449;
 }
+
+
+
+
+
+
 
 
 /*--------------------------------------------------------------
@@ -1196,20 +1221,24 @@ h3 {
 
 
 
+
+
+
+
 /*--------------------------------------------------------------
 ## Front Page
 --------------------------------------------------------------*/
 
-.featured-cont:before {
-    content: "\f053";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+.featured__arrows-cont {
+    position: relative;
+}
+
+.featured__chevron-left {
     font-size: 19px;
-    background-color: #404247;
+    background-color: #000;
     color: #fff;
-    opacity: 0.8;
+    opacity: 0;
     padding: 10px;
-    display: inline-block;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1219,18 +1248,24 @@ h3 {
     left: 20px;
     transform: translateY(-50%);
     z-index: 10;
+    cursor: pointer;
+    transition: opacity 0.3s;
 }
 
-.featured-cont:after {
-    content: "\f054";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+.featured__arrows-cont:hover .featured__chevron-left {
+    opacity: 0.6;
+}
+
+.featured__arrows-cont:hover .featured__chevron-left:hover {
+    opacity: 1;
+}
+
+.featured__chevron-right {
     font-size: 19px;
-    background-color: #404247;
+    background-color: #000;
     color: #fff;
-    opacity: 0.8;
+    opacity: 0;
     padding: 10px;
-    display: inline-block;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1240,7 +1275,20 @@ h3 {
     right: 20px;
     transform: translateY(-50%);
     z-index: 10;
+    cursor: pointer;
+    transition: opacity 0.3s;
 }
+
+.featured__arrows-cont:hover .featured__chevron-right{
+    opacity: 0.6;
+}
+
+.featured__arrows-cont:hover .featured__chevron-right:hover {
+    opacity: 1;
+}
+
+
+
 
 .featured { 
     width: 100%;
@@ -1254,21 +1302,93 @@ h3 {
     padding-bottom: 52%;
 }
 
-.posts-cont {
+.featured__link {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+.home-posts__cont {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 }
 
-.posts {
+.home-posts {
     width: 25%;
     background-size: cover;
+    position: relative;
 }
 
-.posts:after {
+.home-posts:after {
     content: "";
     display: block;
     padding-bottom: 100%;
 }
+
+.home-post__title-cont {
+    position: absolute;
+    background-color: #191919;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.6s;
+    overflow: hidden;
+}
+
+.home-post__title-cont:hover {
+    opacity: 0.95;
+}
+
+.home-post__title {
+    padding: 30px;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    transform: scale(1.3);
+    transform-origin: 50% 20%;
+    transition: all 0.6s;
+}
+
+.home-post__title-cont:hover .home-post__title {
+    transform: scale(1);
+}
+
+.home-post__read-more-btn {
+    width: 120px;
+    height: 20px;
+    color: #fff;
+    background-color: rgba(1,156,219, 0.4);
+    border-radius: 0;
+    border: 1px solid #fff;
+    font-size: 9px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.home-post__read-more-btn:hover {
+    background-color: #000;
+}
+    
+.home-post__read-more-btn-link {
+    padding: 3px;
+    color: #fff;
+}
+
+.home-post__read-more-btn-link:hover, .home-post__read-more-btn-link:visited {
+    color: #fff;
+}
+
+
+
 
 .client-logos-cont {
    width: 100%;
@@ -1279,14 +1399,122 @@ h3 {
 .client-logo-cont {
     height: 100px;
     width: 220px;
-    background-size: cover;
+    background-size: contain;
     background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 
 .client-logo {
     height: 100px;
     width: auto;
 }
+
+
+
+
+
+
+/*--------------------------------------------------------------
+## Things We Love
+--------------------------------------------------------------*/
+
+.twl-posts__cont {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.twl-posts {
+    width: 25%;
+    background-size: cover;
+    position: relative;
+}
+
+.twl-posts:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.twl-post__content-cont {
+    position: absolute;
+    background-color: #191919;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.6s;
+    overflow: hidden;
+}
+
+.twl-post__content-cont:hover {
+    opacity: 0.95;
+}
+
+.twl-post__copy-cont {
+    height: 100%;
+    transform: scale(1.3);
+    transform-origin: 50% 20%;
+    transition: all 0.6s;
+}
+
+.twl-post__title {
+    padding: 30px 40px 8px 40px;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+.twl-post__copy-cont p {
+    color: #fff;
+    padding: 0 30px;
+    height: 35%;
+    font-weight: 500;
+    font-size: 10px;
+    text-transform: uppercase;
+    overflow: scroll;
+}
+
+.twl-post__content-cont:hover .twl-post__copy-cont {
+    transform: scale(1);
+}
+
+.twl-post__read-more-btn {
+    width: 120px;
+    height: 20px;
+    color: #fff;
+    background-color: rgba(1,156,219, 0.4);
+    border-radius: 0;
+    border: 1px solid #fff;
+    font-size: 9px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.twl-post__read-more-btn:hover {
+    background-color: #000;
+}
+    
+.twl-post__read-more-btn-link {
+    padding: 3px;
+    color: #fff;
+}
+
+.twl-post__read-more-btn-link:hover, .twl-post__read-more-btn-link:visited {
+    color: #fff;
+}
+
+
+
+
+
+
+
 
 
 /*--------------------------------------------------------------

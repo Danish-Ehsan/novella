@@ -10,28 +10,33 @@ get_header();
                 <?php 
                     $featured = get_field('featured_galleries');
                     if ($featured) :
-                        echo '<div class="featured-cont owl-carousel owl-carousel-featured">';
+                        echo '<div class="featured__arrows-cont"><i class="fas fa-chevron-left featured__chevron-left"></i><i class="fas fa-chevron-right featured__chevron-right"></i>';
+                        echo '<div class="featured__cont owl-carousel owl-carousel-featured">';
                         foreach ($featured as $post) :
                         setup_postdata($post);
                 ?>
                 <div class="featured" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)">
+                    <a href="<?php the_permalink(); ?>" class="featured__link"></a>
                 </div>
                 <?php
                     wp_reset_postdata();
                     endforeach;
-                    echo '</div>';
+                    echo '</div></div>';
                     endif;
                 ?>
                 
                 <?php
                     $posts = get_posts(array('numberposts' => 12));
                     if ($posts) :
-                        echo '<div class="posts-cont">';
+                        echo '<div class="home-posts__cont">';
                         foreach ($posts as $post) :
                             setup_postdata($post);
                 ?>
-                <div class="posts" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)">
-                    <?php //the_post_thumbnail(); ?>
+                <div class="home-posts" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)">
+                    <div class="home-post__title-cont">
+                        <h2 class="home-post__title"><?php the_title(); ?></h2>
+                        <button class="home-post__read-more-btn"><a href="<?php the_permalink(); ?>" class="home-post__read-more-btn-link">Read More</a></button>
+                    </div>
                 </div>
                 <?php
                         endforeach;

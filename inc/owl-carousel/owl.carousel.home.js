@@ -16,8 +16,18 @@
         dots: false,
         autoplay: true,
         autoplayTimeout: 4000,
-        autoplayHoverPause: true,
         autoplaySpeed: 1000
+    });
+
+    var owl = $('.owl-carousel-featured');
+    owl.owlCarousel();
+
+    $('.featured__chevron-left').click(function() {
+       owl.trigger('prev.owl.carousel', [1000]); 
+    });
+    
+    $('.featured__chevron-right').click(function() {
+       owl.trigger('next.owl.carousel', [1000]); 
     });
 
 }( jQuery ));
