@@ -14,7 +14,7 @@
         loop: true,
         items: 4,
         dots: false,
-        autoplay: true,
+        autoplay: false,
         autoplayTimeout: 4000,
         autoplaySpeed: 1000
     });
@@ -23,11 +23,12 @@
     owl.owlCarousel();
 
     $('.featured__chevron-left').click(function() {
-       owl.trigger('prev.owl.carousel', [1000]); 
+		//stop and start need to be triggered to reset the timer before the slide auto switches
+       owl.trigger('stop.owl.autoplay').trigger('prev.owl.carousel', [1000]).trigger('play.owl.autoplay', [5000, 1200]); 
     });
     
     $('.featured__chevron-right').click(function() {
-       owl.trigger('next.owl.carousel', [1000]); 
+       owl.trigger('stop.owl.autoplay').trigger('next.owl.carousel', [1000]).trigger('play.owl.autoplay', [5000, 1200]); 
     });
 
 }( jQuery ));

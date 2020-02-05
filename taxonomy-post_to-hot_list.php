@@ -12,9 +12,8 @@ get_header();
 
     <div id="primary" class="content-area">
             <main id="main" class="site-main">
-                <div class="posts-cont">
-                    <div class="posts__left-col">
-                        <?php if ( have_posts() ) : ?>
+                <div class="posts-cont hotlist">
+						<?php if ( have_posts() ) : ?>
 
                             <?php
                             /* Start the Loop */
@@ -22,21 +21,23 @@ get_header();
                                 the_post();
                         ?>
                         <div class="post-cont">
+                            <div class="post__thumbnail">
+                                <a href="<?php the_permalink(); ?>">
+                                    <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title() . ' thumbnail'?>">
+                                </a>
+                            </div>
                             <header class="post__header">
                                 <h1 class="post__title"><a href="<?php the_permalink(); ?>" class="post__title-link"><?php the_title(); ?></a></h1>
-                                <p class="post__author">By <a href="<?php echo get_author_posts_url(get_the_author_meta($field = 'ID')); ?>" class="post__author-name"><?php echo get_the_author_meta('display_name'); ?></a><?php edit_post_link('Edit', ' | '); ?></p>
                             </header>
                             <article class="post__content">
-                                <?php the_content(); ?>
+                                <?php the_excerpt(); ?>
                             </article>
-                            <div class="post__tags-cont">
-                                <div class="post__categories"><i class="far fa-folder post__tags-icon"></i><?php the_category(', '); ?></div>
-                                 <i class="fas fa-tags post__tags-icon"></i><?php the_tags( '', ', ', '<br />' ); ?> 
-                            </div>
                         </div>
                         <?php	
                             endwhile;
-                            
+                        ?>
+				</div><!--.posts-cont-->
+						<?php
                             the_posts_pagination(array(
                                 'after_page_number' => ' /',
                                 'next_text'         => 'Next →',
@@ -49,9 +50,6 @@ get_header();
 
                         endif;
                         ?>
-                    </div><!--.posts__left-col-->
-                    <?php get_sidebar(); ?>
-                </div><!--.posts-cont-->
             </main><!-- #main -->
     </div><!-- #primary -->
 

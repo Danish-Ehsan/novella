@@ -45,7 +45,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
         ## Header
         ## Footer
         ## Front Page
+        ## Post - Archive
+        ## Sidebar
         ## Things We Love
+        ## Gallery - Single
+        ## Search Results
+        ## Hot List Template
 
 # Custom Styles
 --------------------------------------------------------------*/
@@ -1012,6 +1017,7 @@ html, body, .container, .main {
     font-family: 'Raleway', sans-serif;
     line-height: 20px;
     position: relative;
+    box-sizing: border-box;
 }
 
 .post, .page {
@@ -1020,11 +1026,24 @@ html, body, .container, .main {
 
 a {
     text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
 }
 
 ul {
     margin: 0;
     padding: 0;
+}
+
+h1 {
+    font-size: 30px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
 h2 {
@@ -1039,6 +1058,11 @@ h3 {
     font-size: 14px;
 }
 
+p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+}
 
 
 
@@ -1383,7 +1407,7 @@ h3 {
     color: #fff;
 }
 
-.home-post__read-more-btn-link:hover, .home-post__read-more-btn-link:visited {
+.home-post__read-more-btn-link:visited, .home-post__read-more-btn-link:hover {
     color: #fff;
 }
 
@@ -1399,6 +1423,7 @@ h3 {
 .client-logo-cont {
     height: 100px;
     width: 220px;
+	margin: 0 auto;
     background-size: contain;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -1409,6 +1434,252 @@ h3 {
     width: auto;
 }
 
+
+
+
+/*--------------------------------------------------------------
+## Post - Archive
+--------------------------------------------------------------*/
+
+.posts-cont {
+    width: 100%;
+    padding: 20px 75px;
+    display: flex;
+}
+
+.posts__left-col {
+    width: 75%;
+    padding-left: 100px;
+    padding-right: 20px;
+}
+
+.post-cont {
+    width: 100%;
+    padding: 50px 0;
+    color: #404247;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.post-cont a, .post-cont a:visited {
+    color: #cf5449;
+}
+
+.post__title {
+    margin: 20px 20px 5px 0;
+    color: #000;
+}
+
+.post__title--grey {
+	color: #404247;
+}
+
+.post__title a {
+    color: inherit;
+}
+
+.post__title a:visited {
+    color: inherit;
+}
+
+.post__title a:hover {
+    color: #404247;
+}
+
+.post__author {
+    margin-bottom: 20px;
+    color: #7c808c;
+}
+
+.post__author a, .post__author a:visited {
+    color: #404247;
+}
+
+.post__author a:hover {
+    color: #cf5449;
+}
+
+.post-cont p {
+    margin-bottom: 30px;
+}
+
+.post-cont img {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.post__tags-cont {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.post__categories {
+    margin-right: 10px;
+    display: inline;
+    font-weight: 600;
+}
+
+.post__tags-icon {
+    margin-right: 5px;
+    font-size: 10px;
+    color: #444343;
+}
+
+.post__tags-icon:first-child {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.post__tags-cont a, .post__tags-cont a:visited, .post__tags-cont a:hover {
+    color: #cf5449;
+}
+
+.post-cont figure {
+    width: 100% !important;
+    margin: 0 0 20px 0;
+}
+
+.post-cont figure img {
+    margin: 0;
+}
+
+.post-cont figcaption {
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    font-style: italic;
+    margin: 10px 0 0 0;
+    display: block;
+}
+
+
+
+
+
+.pagination {
+    padding: 50px 0 100px 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.pagination a:hover {
+    color: #cf5449;
+}
+
+.pagination .current {
+    color: #cf5449;
+}
+
+.pagination .next, .pagination .prev, .post-navigation .nav-next a, .post-navigation .nav-previous a {
+    color: #cf5449;
+    font-size: 10px;
+    padding: 3px 20px;
+    border: 1px solid #cf5449;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: normal;
+}
+
+.post-navigation .nav-next a, .post-navigation .nav-previous a {
+    line-height: 20px;
+}
+
+.pagination .next, .post-navigation .nav-next {
+    float: right;
+}
+
+.pagination .prev, .post-navigation .nav-previous {
+    float: left;
+}
+
+.post-navigation .nav-links {
+    display: block;
+    width: 100%;
+}
+
+.post-navigation .nav-next, .post-navigation .nav-previous {
+    width: auto;
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+## Sidebar
+--------------------------------------------------------------*/
+
+.widget-area {
+    width: 25%;
+    padding: 70px;
+    border-left: 1px solid #efefef;
+    color: 444343;
+}
+
+.search-form {
+    padding-bottom: 50px;
+}
+
+input[type="search"] {
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 0;
+    padding: 3px 10px;
+    font-size: 12px;
+    width: 100%;
+}
+
+input.search-submit {
+    background-color: #cf5449;
+    border: 1px solid #333;;
+    border-radius: 0;
+}
+
+.widget-area h2 {
+    color: #444343;
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0;
+    margin: 20px 0 40px 0;
+}
+
+.widget-area ul {
+    margin: 0 0 100px 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.widget-area a {
+    position: relative;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #ededed;
+    line-height: 25px;
+    transition: all 0.3s ease;
+    left: 0;
+}
+
+.widget-area li {
+    display: block;
+    line-height: 25px;
+}
+
+.widget-area a, .widget-area a:visited {
+    color: #404247;
+    font-weight: 700;
+}
+
+.widget-area a:hover {
+    color: #cf5449;
+    left: 15px;
+}
 
 
 
@@ -1427,6 +1698,7 @@ h3 {
 .twl-posts {
     width: 25%;
     background-size: cover;
+	background-position: 50% 50%;
     position: relative;
 }
 
@@ -1479,8 +1751,6 @@ h3 {
 }
 
 .twl-post__read-more-btn {
-    width: 120px;
-    height: 20px;
     color: #fff;
     background-color: rgba(1,156,219, 0.4);
     border-radius: 0;
@@ -1494,6 +1764,7 @@ h3 {
     cursor: pointer;
     transition: all 0.3s;
     text-transform: uppercase;
+	padding: 0;
 }
 
 .twl-post__read-more-btn:hover {
@@ -1501,17 +1772,184 @@ h3 {
 }
     
 .twl-post__read-more-btn-link {
-    padding: 3px;
+    padding: 3px 30px;
+    color: #fff;
+	line-height: 2;
+}
+
+.twl-post__read-more-btn-link:visited, .twl-post__read-more-btn-link:hover {
     color: #fff;
 }
 
-.twl-post__read-more-btn-link:hover, .twl-post__read-more-btn-link:visited {
+
+
+
+
+
+/*--------------------------------------------------------------
+## Gallery - Archive
+--------------------------------------------------------------*/
+
+.gallery__posts-cont {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+.gallery__post-cont {
+	width: 50%;
+	position: relative;
+}
+
+.gallery__post-cont:after {
+	content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.gallery__content-cont {
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	text-align: center;
+}
+
+.gallery__image {
+	background-size: cover;
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	background-position: 50% 50%;
+}
+
+.gallery__copy-cont {
+	position: absolute;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	color: #fff;
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: 0;
+	transition: 0.8s all ease;
+}
+
+.gallery__post-cont:hover .gallery__copy-cont {
+	opacity: 1;
+}
+
+.gallery__copy-bkg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #191919;
+	opacity: 0;
+	transition: 0.6s all ease;
+}
+
+.gallery__post-cont:hover .gallery__copy-bkg {
+	opacity: 1;
+}
+
+.gallery__title {
+	position: relative;
+	bottom: 75px;
+	margin: 0 0 50px 0;
+	transition: 0.6s all ease;
+}
+
+.gallery__post-cont:hover .gallery__title {
+	bottom: 0px;
+}
+
+.gallery__read-more-btn {
     color: #fff;
+    background-color: rgba(1,156,219, 0.4);
+    border-radius: 0;
+    border: 1px solid #fff;
+    font-size: 9px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+	display: inline-block;
+	padding: 0;
+}
+
+.gallery__read-more-btn:hover {
+	background-color: #000;
+}
+
+.gallery__read-more-btn-link {
+	padding: 5px 30px;
+	line-height: 2;
+}
+
+
+/*--------------------------------------------------------------
+## Gallery - Single
+--------------------------------------------------------------*/
+
+.gallery-single {
+    display: block;
+    padding: 0 275px 50px;
+}
+
+.gallery-single h1 {
+    color: #444343;
+    font-size: 40px;
+    line-height: 32px;
+    margin: 20px 0 50px 0;
 }
 
 
 
 
+
+/*--------------------------------------------------------------
+## Search Results
+--------------------------------------------------------------*/
+
+.search-results__heading {
+    font-size: 36px;
+    padding: 100px 0 50px 0;
+    color: #444343;
+    border-bottom: 1px solid #EDEDED;
+    text-align: left;
+    margin: 0;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+## Hot List Template
+--------------------------------------------------------------*/
+
+.hotlist.posts-cont {
+	width: 100%;
+	display: block;
+	column-count: 3;
+}
+
+.hotlist .post-cont {
+	width: 100%;
+	display: block;
+	padding: 15px;
+}
+
+.hotlist .post__thumbnail {
+	width: 100%;
+	margin: 0;
+}
+
+.hotlist .post__title {
+	font-size: 18px;
+	color: #444343;
+	margin: 20px 0;
+}
 
 
 
