@@ -12,11 +12,21 @@
     
     $(".owl-carousel-client-logos").owlCarousel({
         loop: true,
-        items: 4,
         dots: false,
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 4000,
-        autoplaySpeed: 1000
+        autoplaySpeed: 1000,
+		responsive: {
+			0: {
+				items: 2
+			},
+			600: {
+				items: 3
+			},
+			700: {
+				items: 4
+			}
+		}
     });
 
     var owl = $('.owl-carousel-featured');

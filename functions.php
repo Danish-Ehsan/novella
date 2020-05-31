@@ -134,11 +134,22 @@ function novella_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
         
+		//Enqueue video page script which gets data from wordpress
+		wp_enqueue_script( 'videos-page-js', get_template_directory_uri() . '/js/videos-page.js', array(), false, true );
+		
         //Owl Carousel Files
         wp_enqueue_style( 'owl-carousel-main-css', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.css', array(), false, false );
         wp_enqueue_style( 'owl-carousel-theme-css', get_template_directory_uri() . '/inc/owl-carousel/owl.theme.default.css', array(), false, false );
         wp_enqueue_script( 'owl-carousel-js', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.min.js', array(), false, true );
-        wp_enqueue_script( 'owl-carousel-home-js', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.home.js', array(), false, true );
+        wp_enqueue_script( 'owl-carousel-home-js', get_template_directory_uri() . '/js/owl.carousel.home.js', array(), false, true );
+		wp_enqueue_script( 'owl-carousel-videos-js', get_template_directory_uri() . '/js/owl.carousel.videos.js', array(), false, true );
+		
+		//Isotope Masonry Layout
+		wp_enqueue_script( 'isotope-js', get_template_directory_uri() . '/inc/isotope.pkgd.min.js', array(), false, false );
+		wp_enqueue_script( 'images-loaded-js', get_template_directory_uri() . '/inc/imagesloaded.pkgd.min.js', array(), false, false );
+		wp_enqueue_script( 'isotope-init-js', get_template_directory_uri() . '/js/isotope-init.js', array(), false, true );
+		
+		
 }
 add_action( 'wp_enqueue_scripts', 'novella_scripts' );
 
@@ -169,3 +180,68 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+
+
+
+// add dropdown arrows to menu items that have sub menu
+function oenology_add_menu_parent_class( $items ) {
+ 
+ $parents = array();
+ foreach ( $items as $item ) {
+ if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
+ $parents[] = $item->menu_item_parent;
+ }
+ }
+ 
+ foreach ( $items as $item ) {
+ if ( in_array( $item->ID, $parents ) ) {
+ $item->title .= '<i class="fas fa-chevron-down menu-item-dropdown-icon"></i>';
+ }
+ }
+ 
+ return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'oenology_add_menu_parent_class' );
+
+
+
+//Category search only returns results from 'The Radar'
+function search_filter_radar($query) {
+    if ( ! is_admin() && $query->is_main_query() ) {
+        if ( $query->is_category ) {
+            $query->set( 'tax_query', array(
+				array(
+					'taxonomy'	=> 'post_to',
+					'field'		=> 'slug',
+					'terms'		=> 'the_radar'
+				)
+			) );
+        }
+    }
+}
+add_action( 'pre_get_posts', 'search_filter_radar' );
+
+
+//Hotlist, Perks, and Events posts return more results per page
+function search_filter_masonry($query) {
+    if ( ! is_admin() && $query->is_main_query() ) {
+        if ( $query->is_tax('post_to', 'hot_list') || $query->is_post_type_archive('events') || $query->is_post_type_archive('perks')) {
+            $query->set( 'posts_per_page', 9 );
+        }
+    }
+}
+
+add_action( 'pre_get_posts', 'search_filter_masonry' );
+
+//Videos posts gets all posts
+function search_filter_videos($query) {
+    if ( ! is_admin() && $query->is_main_query() ) {
+        if ( $query->is_post_type_archive('videos')) {
+            $query->set( 'posts_per_page', -1 );
+        }
+    }
+}
+
+add_action( 'pre_get_posts', 'search_filter_videos' );

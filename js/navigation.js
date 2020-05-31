@@ -4,7 +4,7 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
-( function() {
+(function( $ ) {
 	var container, button, menu, links, i, len;
 
 	container = document.getElementById( 'site-navigation' );
@@ -103,4 +103,12 @@
 			}
 		}
 	}( container ) );
-} )();
+	
+	var $navBtn = $('.js--nav-btn');
+	var $navMenu = $('.js--nav-menu');
+	
+	$navBtn.on('click', function() {
+		$navMenu.toggleClass('visible');
+	});
+	
+}( jQuery ));
