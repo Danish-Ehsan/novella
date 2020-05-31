@@ -1610,6 +1610,7 @@ blockquote ul {
 }
 
 .post-cont img {
+	display: block;
     max-width: 100%;
 	min-width: 400px;
     margin: 20px 0;
