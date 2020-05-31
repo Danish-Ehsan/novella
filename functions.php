@@ -122,7 +122,7 @@ add_action( 'widgets_init', 'novella_widgets_init' );
 function novella_scripts() {
 	wp_enqueue_style( 'novella-style', get_stylesheet_uri() );
         
-        wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Raleway:400,600,800,900&display=swap', false );
+    wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Raleway:400,600,800,900&display=swap', false );
 
 	wp_enqueue_script( 'novella-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -135,15 +135,20 @@ function novella_scripts() {
 	}
         
 		//Enqueue video page script which gets data from wordpress
-		wp_enqueue_script( 'videos-page-js', get_template_directory_uri() . '/js/videos-page.js', array(), false, true );
+		if (is_post_type_archive('videos')) {
+			wp_enqueue_script( 'videos-page-js', get_template_directory_uri() . '/js/videos-page.js', array(), false, true );
+		}
 		
         //Owl Carousel Files
         wp_enqueue_style( 'owl-carousel-main-css', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.css', array(), false, false );
         wp_enqueue_style( 'owl-carousel-theme-css', get_template_directory_uri() . '/inc/owl-carousel/owl.theme.default.css', array(), false, false );
         wp_enqueue_script( 'owl-carousel-js', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.min.js', array(), false, true );
-        wp_enqueue_script( 'owl-carousel-home-js', get_template_directory_uri() . '/js/owl.carousel.home.js', array(), false, true );
-		wp_enqueue_script( 'owl-carousel-videos-js', get_template_directory_uri() . '/js/owl.carousel.videos.js', array(), false, true );
+		wp_enqueue_script( 'owl-carousel-home-js', get_template_directory_uri() . '/js/owl.carousel.home.js', array(), false, true );
 		
+		if (is_post_type_archive('videos')) {
+			wp_enqueue_script( 'owl-carousel-videos-js', get_template_directory_uri() . '/js/owl.carousel.videos.js', array(), false, true );
+		}
+			
 		//Isotope Masonry Layout
 		wp_enqueue_script( 'isotope-js', get_template_directory_uri() . '/inc/isotope.pkgd.min.js', array(), false, false );
 		wp_enqueue_script( 'images-loaded-js', get_template_directory_uri() . '/inc/imagesloaded.pkgd.min.js', array(), false, false );
