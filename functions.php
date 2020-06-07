@@ -144,6 +144,7 @@ function novella_scripts() {
         wp_enqueue_style( 'owl-carousel-theme-css', get_template_directory_uri() . '/inc/owl-carousel/owl.theme.default.css', array(), false, false );
         wp_enqueue_script( 'owl-carousel-js', get_template_directory_uri() . '/inc/owl-carousel/owl.carousel.min.js', array(), false, true );
 		wp_enqueue_script( 'owl-carousel-home-js', get_template_directory_uri() . '/js/owl.carousel.home.js', array(), false, true );
+		wp_enqueue_script( 'owl-carousel-post-js', get_template_directory_uri() . '/js/owl.carousel.post.js', array(), false, true );
 		
 		if (is_post_type_archive('videos')) {
 			wp_enqueue_script( 'owl-carousel-videos-js', get_template_directory_uri() . '/js/owl.carousel.videos.js', array(), false, true );
