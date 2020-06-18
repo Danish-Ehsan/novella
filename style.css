@@ -1818,7 +1818,7 @@ input.search-submit {
 }
 
 .twl-posts {
-    width: 25%;
+    width: calc(100%/6);
     background-size: cover;
 	background-position: 50% 50%;
     position: relative;
@@ -1904,6 +1904,42 @@ input.search-submit {
 }
 
 
+
+
+
+.things-we-love + .pagination {
+	padding: 50px 15px 75px 15px;
+	width: 85%;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.things-we-love + .pagination .page-numbers, .things-we-love + .pagination .next, .things-we-love + .pagination .prev {
+	border: 1px solid #ECEEF0;
+	color: #B9BEC3;
+	line-height: 30px;
+	width: 30px;
+	display: inline-block;
+	text-align: center;
+	padding: 0;
+	font-size: 14px;
+	font-weight: 400;
+	margin-right: 5px;
+}
+
+.things-we-love + .pagination .next, .things-we-love + .post-navigation .nav-next {
+    float: none;
+}
+
+.things-we-love + .pagination .prev, .things-we-love + .post-navigation .nav-previous {
+    float: none;
+}
+
+.things-we-love + .pagination .current {
+	background-color: #CF5449;
+	color: #fff;
+	border: 1px solid #CF5449;
+}
 
 
 
@@ -2314,6 +2350,20 @@ input.search-submit {
 /*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/
+
+
+@media screen and (max-width: 1400px) {
+
+	/*--------------------------------------------------------------
+	## Things We Love - Max 1400px
+	--------------------------------------------------------------*/
+	
+	.twl-posts {
+		width: 25%;
+	}
+	
+}
+
 
 @media screen and (max-width: 1200px) {
 

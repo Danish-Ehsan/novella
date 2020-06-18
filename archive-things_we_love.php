@@ -8,14 +8,13 @@ get_header();
 
             <main id="main" class="main">
                 <?php
-                    $the_query = new WP_Query( array('post_type' => 'things_we_love') );
+                    //$the_query = new WP_Query( array('post_type' => 'things_we_love') );
 
-                    if ($the_query->have_posts()) :
-                        echo '<div class="twl-posts__cont">';
-                        while ($the_query->have_posts()) :
-                            $the_query->the_post();
+                    if ( have_posts() ) :
+                        echo '<div class="twl-posts__cont things-we-love">';
+                        while (have_posts()) : the_post();
                 ?>   
-                <div class="twl-posts" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)">
+                <div class="twl-posts" style="background-image: url(<?php echo (get_the_post_thumbnail_url('medium-square') ? get_the_post_thumbnail_url('medium-square') : get_the_post_thumbnail_url()) ?>)">
                     <div class="twl-post__content-cont">
                         <div class="twl-post__copy-cont">
                             <h2 class="twl-post__title"><?php the_title(); ?></h2>
@@ -27,6 +26,10 @@ get_header();
                 <?php
                         endwhile;
                         echo '</div>';
+						 the_posts_pagination(array(
+							'next_text'         => '›',
+							'prev_text'         => '‹'
+						));
                     endif;
                 ?>
             </main><!-- #main -->

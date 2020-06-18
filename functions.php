@@ -188,6 +188,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 
 
+// Custom image size for Things We Love
+add_image_size( 'medium-square', 450, 450, true );
 
 
 
@@ -196,18 +198,18 @@ function oenology_add_menu_parent_class( $items ) {
  
  $parents = array();
  foreach ( $items as $item ) {
- if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
- $parents[] = $item->menu_item_parent;
- }
+	if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
+		$parents[] = $item->menu_item_parent;
+	}
  }
  
  foreach ( $items as $item ) {
- if ( in_array( $item->ID, $parents ) ) {
- $item->title .= '<i class="fas fa-chevron-down menu-item-dropdown-icon"></i>';
- }
+	if ( in_array( $item->ID, $parents ) ) {
+		$item->title .= '<i class="fas fa-chevron-down menu-item-dropdown-icon"></i>';
+	}
  }
  
- return $items;
+	return $items;
 }
 add_filter( 'wp_nav_menu_objects', 'oenology_add_menu_parent_class' );
 
@@ -230,6 +232,7 @@ function search_filter_radar($query) {
 add_action( 'pre_get_posts', 'search_filter_radar' );
 
 
+
 //Hotlist, Perks, and Events posts return more results per page
 function search_filter_masonry($query) {
     if ( ! is_admin() && $query->is_main_query() ) {
@@ -238,8 +241,21 @@ function search_filter_masonry($query) {
         }
     }
 }
-
 add_action( 'pre_get_posts', 'search_filter_masonry' );
+
+
+
+//Things We Love posts return more results per page
+function search_filter_twl($query) {
+    if ( ! is_admin() && $query->is_main_query() ) {
+        if ( $query->is_post_type_archive('things_we_love') ) {
+            $query->set( 'posts_per_page', 24 );
+        }
+    }
+}
+add_action( 'pre_get_posts', 'search_filter_twl' );
+
+
 
 //Videos posts gets all posts
 function search_filter_videos($query) {
@@ -249,5 +265,4 @@ function search_filter_videos($query) {
         }
     }
 }
-
 add_action( 'pre_get_posts', 'search_filter_videos' );
