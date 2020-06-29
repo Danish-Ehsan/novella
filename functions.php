@@ -221,7 +221,7 @@ function search_filter_radar($query) {
         if ( $query->is_category ) {
             $query->set( 'tax_query', array(
 				array(
-					'taxonomy'	=> 'post_to',
+					'taxonomy'	=> 'blog',
 					'field'		=> 'slug',
 					'terms'		=> 'the_radar'
 				)
@@ -236,7 +236,7 @@ add_action( 'pre_get_posts', 'search_filter_radar' );
 //Hotlist, Perks, and Events posts return more results per page
 function search_filter_masonry($query) {
     if ( ! is_admin() && $query->is_main_query() ) {
-        if ( $query->is_tax('post_to', 'hot_list') || $query->is_post_type_archive('events') || $query->is_post_type_archive('perks')) {
+        if ( $query->is_tax('blog', 'hot_list') || $query->is_post_type_archive('events') || $query->is_post_type_archive('perks')) {
             $query->set( 'posts_per_page', 9 );
         }
     }
