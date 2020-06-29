@@ -257,7 +257,7 @@ add_action( 'pre_get_posts', 'search_filter_twl' );
 
 
 
-//Videos posts gets all posts
+//Videos post archive gets all posts
 function search_filter_videos($query) {
     if ( ! is_admin() && $query->is_main_query() ) {
         if ( $query->is_post_type_archive('videos')) {
@@ -266,3 +266,14 @@ function search_filter_videos($query) {
     }
 }
 add_action( 'pre_get_posts', 'search_filter_videos' );
+
+
+//Gallery post archive gets all posts
+function search_filter_gallery($query) {
+    if ( ! is_admin() && $query->is_main_query() ) {
+        if ( $query->is_post_type_archive('gallery')) {
+            $query->set( 'posts_per_page', -1 );
+        }
+    }
+}
+add_action( 'pre_get_posts', 'search_filter_gallery' );
