@@ -8,12 +8,11 @@ get_header();
 
             <main id="main" class="main">
                 <?php
-                    $the_query = new WP_Query( array('post_type' => 'gallery') );
 
-                    if ($the_query->have_posts()) :
+                    if (have_posts()) :
                         echo '<div class="gallery__posts-cont">';
-                        while ($the_query->have_posts()) :
-                            $the_query->the_post();
+                        while (have_posts()) :
+                            the_post();
                 ?>   
                 <div class="gallery__post-cont">
                     <div class="gallery__content-cont">
