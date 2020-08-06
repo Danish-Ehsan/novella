@@ -1487,12 +1487,11 @@ blockquote ul {
 }
 
 .home-post__read-more-btn {
-    width: 120px;
-    height: 20px;
     color: #fff;
     background-color: rgba(1,156,219, 0.4);
     border-radius: 0;
     border: 1px solid #fff;
+	padding: 0;
     font-size: 9px;
     position: absolute;
     left: 0;
@@ -1508,7 +1507,8 @@ blockquote ul {
 }
     
 .home-post__read-more-btn-link {
-    padding: 3px;
+    padding: 5px 35px;
+	display: block;
     color: #fff;
 }
 
@@ -2596,14 +2596,17 @@ input.search-submit {
 
 @media screen and (max-width: 550px) {
 	
-	h2 {
-		
+	/*--------------------------------------------------------------
+	## Header - Max 550px
+	--------------------------------------------------------------*/
+	
+	.header__nav-menu {
+		padding-right: 0;
 	}
 	
 	/*--------------------------------------------------------------
 	## Footer - Max 550px
 	--------------------------------------------------------------*/
-	
 	
 	.footer__about, .footer__twitter, .footer__insta {
 		padding: 20px 50px;
@@ -2638,6 +2641,10 @@ input.search-submit {
 	
 	.post-cont {
 		padding-top: 20px;
+	}
+	
+	.post-cont img {
+		min-width: initial;
 	}
 	
 	.post-cont p {
