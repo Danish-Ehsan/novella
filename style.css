@@ -2337,6 +2337,10 @@ input.search-submit {
 	display: none;
 }
 
+.single-things_we_love .addthis_tool.at-above-post {
+	display: none;
+}
+
 .footer .addthis_tool {
 	display: none;
 }
