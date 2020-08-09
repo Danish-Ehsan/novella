@@ -14,7 +14,7 @@ get_header();
                         echo '<div class="twl-posts__cont things-we-love">';
                         while (have_posts()) : the_post();
                 ?>   
-                <div class="twl-posts" style="background-image: url(<?php echo (get_the_post_thumbnail_url('medium-square') ? get_the_post_thumbnail_url('medium-square') : get_the_post_thumbnail_url()) ?>)">
+                <div class="twl-posts" style="background-image: url(<?php echo get_the_post_thumbnail_url( null, 'medium-square'); ?>)">
                     <div class="twl-post__content-cont">
                         <div class="twl-post__copy-cont">
                             <h2 class="twl-post__title"><?php the_title(); ?></h2>

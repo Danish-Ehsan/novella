@@ -32,7 +32,7 @@ get_header();
                         foreach ($posts as $post) :
                             setup_postdata($post);
                 ?>
-                <div class="home-posts" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)">
+                <div class="home-posts" style="background-image: url(<?php echo get_the_post_thumbnail_url(null, 'medium_large'); ?>)">
                     <div class="home-post__title-cont">
                         <h2 class="home-post__title"><?php the_title(); ?></h2>
                         <button class="home-post__read-more-btn"><a href="<?php the_permalink(); ?>" class="home-post__read-more-btn-link">Read More</a></button>

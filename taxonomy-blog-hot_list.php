@@ -30,7 +30,7 @@ get_header();
 					<div class="post-cont grid-item <?php foreach((get_the_category()) as $category) { echo strtolower($category->cat_name) . ' '; } ?>" data-filter="">
 						<div class="post__thumbnail">
 							<a href="<?php the_permalink(); ?>">
-								<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php echo get_the_title() . ' thumbnail'?>">
+								<img src="<?php echo get_the_post_thumbnail_url(null, 'medium_large'); ?>" alt="<?php echo get_the_title() . ' thumbnail'?>">
 							</a>
 						</div>
 						<header class="post__header">

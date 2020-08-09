@@ -16,7 +16,7 @@ get_header();
                 ?>   
                 <div class="gallery__post-cont">
                     <div class="gallery__content-cont">
-						<div class="gallery__image" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)"></div>
+						<div class="gallery__image" style="background-image: url(<?php echo get_the_post_thumbnail_url(null, '1536x1536'); ?>)"></div>
 						<div class="gallery__copy-bkg"></div>
 						<div class="gallery__copy-cont">
 							<h2 class="gallery__title"><?php the_title(); ?></h2>
