@@ -4,6 +4,8 @@
         loop: true,
         items: 1,
         dots: false,
+		lazyLoad: true,
+		lazyLoadEager: 1,
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true,

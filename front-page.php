@@ -12,13 +12,22 @@ get_header();
                     if ($featured) :
                         echo '<div class="featured__arrows-cont"><i class="fas fa-chevron-left featured__chevron-left"></i><i class="fas fa-chevron-right featured__chevron-right"></i>';
                         echo '<div class="featured__cont owl-carousel owl-carousel-featured">';
-                        foreach ($featured as $post) :
+                        foreach ($featured as $key=>$post) :
                         setup_postdata($post);
+						
+						if ($key == 0) :
                 ?>
                 <div class="featured" style="background-image: url(<?php echo get_the_post_thumbnail_url(); ?>)">
                     <a href="<?php the_permalink(); ?>" class="featured__link"></a>
                 </div>
+				<?php
+					else :
+				?>
+				<div class="featured owl-lazy" data-src="<?php echo get_the_post_thumbnail_url(); ?>">
+                    <a href="<?php the_permalink(); ?>" class="featured__link"></a>
+                </div>
                 <?php
+					endif;
                     wp_reset_postdata();
                     endforeach;
                     echo '</div></div>';
