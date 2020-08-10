@@ -2156,6 +2156,10 @@ input.search-submit {
 	display: block;
 }
 
+.hotlist .post-cont img {
+	min-width: 100%;
+}
+
 .events.posts-cont, .perks.posts-cont {
 	margin: 70px auto 20px auto;
 }
