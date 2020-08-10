@@ -46,6 +46,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
         ## Footer
         ## Front Page
         ## Posts
+		## Page - Services
         ## Sidebar
         ## Things We Love
         ## Gallery - Single
@@ -1730,8 +1731,39 @@ blockquote ul {
 }
 
 
+/*--------------------------------------------------------------
+## Page - Services
+--------------------------------------------------------------*/
 
+.page-services ul {
+	margin-left: 16px;
+}
 
+.page-services h3 {
+	margin-top: 30px;
+}
+
+.page-services p {
+	margin-bottom: 15px;
+}
+
+.services__clients-title {
+	font-weight: 700;
+	margin-top: 60px;
+}
+
+.services__clients-cont {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.services__clients-logo {
+	width: 150px;
+	height: 75px;
+	margin: 10px;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 
 /*--------------------------------------------------------------
 ## Sidebar
