@@ -1762,6 +1762,7 @@ blockquote ul {
 	height: 75px;
 	margin: 10px;
 	background-size: contain;
+	background-position: 50% 50%;
 	background-repeat: no-repeat;
 }
 
