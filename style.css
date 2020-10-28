@@ -2003,7 +2003,7 @@ input.search-submit {
 .gallery__post-cont:after {
 	content: "";
     display: block;
-    padding-bottom: 100%;
+    padding-bottom: 55%;
 }
 
 .gallery__content-cont {
