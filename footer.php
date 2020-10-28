@@ -52,7 +52,13 @@
             <a href="http://twitter.com/NovellaMagazine" target="_blank">Tweets by @NovellaMagazine</a>
         </div>
 
-        <div class="footer__insta"></div>
+        <div class="footer__insta">
+			<?php 
+				if (is_active_sidebar( 'footer-sidebar-1' )) {
+					dynamic_sidebar( 'footer-sidebar-1' ); 
+				}
+			?>
+		</div>
 
 
 
