@@ -32,25 +32,18 @@ get_header();
                             </article>
 							
 							<?php 
-								$query = new WP_Query( array('pagename' => 'home-page') );
-								if ($query->have_posts()) :
-									while ($query->have_posts()) :
-										$query->the_post();
-										if (have_rows('client_logos')) :
-											echo '<h1 class="services__clients-title">Past Clients</h1>';
-											echo '<div class="services__clients-cont">';
-											while(have_rows('client_logos')) :
-												the_row();
+								$services_logos = get_field('services_logos');
+								
+								if ($services_logos) :
+									echo '<h1 class="services__clients-title">Past Clients</h1>';
+									echo '<div class="services__clients-cont">';
+									foreach( $services_logos as $logo ) :
 							?>
-							<div class="services__clients-logo" style="background-image: url(<?php echo get_sub_field('client_logo'); ?>)"></div>
+							<div class="services__clients-logo" style="background-image: url(<?php echo $logo; ?>)"></div>
 							<?php
-											endwhile;
-											echo '</div>';
-										endif;
-										wp_reset_postdata();
-									endwhile;
+									endforeach;
+									echo '</div>';
 								endif;
-                            
                             endwhile;
 
                         else :
