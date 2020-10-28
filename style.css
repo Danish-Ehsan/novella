@@ -1132,8 +1132,13 @@ blockquote ul {
 
 .header__logo {
     height: 30px;
+	width: 122px;
     position: absolute;
     bottom: 0px;
+}
+
+.header__logo a {
+	width: 100%;
 }
 
 .header__nav-btn {
